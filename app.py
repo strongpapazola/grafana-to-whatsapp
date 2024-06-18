@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
 from urllib.parse import quote
+from json import loads,dumps
 
 app = Flask(__name__)
 
@@ -51,7 +52,7 @@ def send_message():
     try:
         data = request.get_json()
         message = f"""{"🔴" if data['status'] == "firing" else "🟢"} {data['title']}\n\n{data['message']}"""
-        url = "http://bisa.ai:8000/send-message"
+        url = "http://wa.sicoding.id/send-message"
         number = request.args.get('number')
         if number is None:
             return jsonify({'message': 'number not found'})
@@ -71,11 +72,25 @@ def send_message():
 def send_group_message():
     try:
         data = request.get_json()
-        message = f"""{"🔴" if data['status'] == "firing" else "🟢"} {data['title']}\n\n{data['message']}"""
+        # message = f"""{"🔴" if data['status'] == "firing" else "🟢"} {data['title']}\n\n{data['message']}"""
+        print(data)
         group = request.args.get('group')
+        percentagevalue = request.args.get('percentagevalue')
+        try:
+            if percentagevalue is not None and percentagevalue == "true":
+                message = f"""{"🔴" if data['status'] == "firing" else "🟢"} {data['commonAnnotations']['summary']} ({"{:.2f}".format((data['alerts'][0]['values']['B'])*100)}%)"""
+            else:
+                message = f"""{"🔴" if data['status'] == "firing" else "🟢"} {data['commonAnnotations']['summary']} ({"{:.2f}".format(data['alerts'][0]['values']['B'])}%)"""
+        except Exception as f:
+            group = "My System Notification"
+            message = dumps(data)
+
+        # group = "My System Notification"
         if group is None:
             return jsonify({'message': 'group not found'})
-        url = "http://bisa.ai:8000/send-group-message"
+
+        print(group, message)
+        url = "http://wa.sicoding.id/send-group-message"
         # payload = 'message=Download%20File%20Stopped&name=6287722086621'
         payload = 'message=' + quote(message) + '&name=' + group
         headers = {
@@ -85,9 +100,11 @@ def send_group_message():
         print(response.text)
         return jsonify(data)
     except Exception as e:
-        print(e)
-        return jsonify({'message': 'error'})
+        print('error : '+str(e))
+        return jsonify({'message': 'error : '+str(e)})
 
     
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
+    # app.run(host='0.0.0.0', port=8001, debug=True)

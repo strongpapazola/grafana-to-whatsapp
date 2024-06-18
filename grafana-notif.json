@@ -81,3 +81,109 @@
     "state": "alerting",
     "message": "**Firing**\n\nValue: [no value]\nLabels:\n - alertname = TestAlert\n - instance = Grafana\nAnnotations:\n - summary = [ALERT] ABOVEABOVE\nSilence: http://apollo.pajak.io:3000/alerting/silence/new?alertmanager=grafana\u0026matcher=alertname%3DTestAlert\u0026matcher=instance%3DGrafana\n"
 }
+
+{
+    "receiver": "alert-telemetry-infrastructure",
+    "status": "firing",
+    "alerts": [
+        {
+            "status": "firing",
+            "labels": {
+                "alert-telemetry-infrastructure": "alert-telemetry-infrastructure",
+                "alertname": "sandbox-masi-sa-01",
+                "grafana_folder": "Telemetry CPU",
+                "instance": "194.233.85.233:9101"
+            },
+            "annotations": {
+                "summary": "[CPU] sandbox-masi-sa-01 Above 80%"
+            },
+            "startsAt": "2023-12-21T05:20:00Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "http://localhost:3000/alerting/grafana/EKvxcvSSk/view",
+            "fingerprint": "1e10ade148025bae",
+            "silenceURL": "http://localhost:3000/alerting/silence/new?alertmanager=grafana\u0026matcher=alert-telemetry-infrastructure%3Dalert-telemetry-infrastructure\u0026matcher=alertname%3Dsandbox-masi-sa-01\u0026matcher=grafana_folder%3DTelemetry+CPU\u0026matcher=instance%3D194.233.85.233%3A9101",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "B": 50.922874094151325,
+                "C": 1
+            },
+            "valueString": "[ var='B' labels={instance=194.233.85.233:9101} value=50.922874094151325 ], [ var='C' labels={instance=194.233.85.233:9101} value=1 ]"
+        }
+    ],
+    "groupLabels": {
+        "alertname": "sandbox-masi-sa-01",
+        "grafana_folder": "Telemetry CPU"
+    },
+    "commonLabels": {
+        "alert-telemetry-infrastructure": "alert-telemetry-infrastructure",
+        "alertname": "sandbox-masi-sa-01",
+        "grafana_folder": "Telemetry CPU",
+        "instance": "194.233.85.233:9101"
+    },
+    "commonAnnotations": {
+        "summary": "[CPU] sandbox-masi-sa-01 Above 80%"
+    },
+    "externalURL": "http://localhost:3000/",
+    "version": "1",
+    "groupKey": "{}/{alert-telemetry-infrastructure=\"alert-telemetry-infrastructure\"}:{alertname=\"sandbox-masi-sa-01\", grafana_folder=\"Telemetry CPU\"}",
+    "truncatedAlerts": 0,
+    "orgId": 1,
+    "title": "[FIRING:1] sandbox-masi-sa-01 Telemetry CPU (alert-telemetry-infrastructure 194.233.85.233:9101)",
+    "state": "alerting",
+    "message": "**Firing**\n\nValue: B=50.922874094151325, C=1\nLabels:\n - alertname = sandbox-masi-sa-01\n - alert-telemetry-infrastructure = alert-telemetry-infrastructure\n - grafana_folder = Telemetry CPU\n - instance = 194.233.85.233:9101\nAnnotations:\n - summary = [CPU] sandbox-masi-sa-01 Above 80%\nSource: http://localhost:3000/alerting/grafana/EKvxcvSSk/view\nSilence: http://localhost:3000/alerting/silence/new?alertmanager=grafana\u0026matcher=alert-telemetry-infrastructure%3Dalert-telemetry-infrastructure\u0026matcher=alertname%3Dsandbox-masi-sa-01\u0026matcher=grafana_folder%3DTelemetry+CPU\u0026matcher=instance%3D194.233.85.233%3A9101\n"
+}
+
+
+
+{
+    "receiver": "alert-telemetry-infrastructure",
+    "status": "firing",
+    "alerts": [
+        {
+            "status": "firing",
+            "labels": {
+                "alert-grandhika": "alert-grandhika",
+                "alert-telemetry-infrastructure": "alert-telemetry-infrastructure",
+                "alertname": "grandhika-tv-channel",
+                "grafana_folder": "Alert Ping"
+            },
+            "annotations": {
+                "summary": "Alert High Latency cdnjkt[1-4].transvision.co.id Of Grandhika Server Above 50%"
+            },
+            "startsAt": "2024-01-23T03:22:00Z",
+            "endsAt": "0001-01-01T00:00:00Z",
+            "generatorURL": "http://localhost:3000/alerting/grafana/mfMs9yOIz/view",
+            "fingerprint": "498ce81b1acc4fe4",
+            "silenceURL": "http://localhost:3000/alerting/silence/new?alertmanager=grafana\u0026matcher=alert-grandhika%3Dalert-grandhika\u0026matcher=alert-telemetry-infrastructure%3Dalert-telemetry-infrastructure\u0026matcher=alertname%3Dgrandhika-tv-channel\u0026matcher=grafana_folder%3DAlert+Ping",
+            "dashboardURL": "",
+            "panelURL": "",
+            "values": {
+                "B": 0.33333333333333337,
+                "C": 1
+            },
+            "valueString": "[ var='B' labels={} value=0.33333333333333337 ], [ var='C' labels={} value=1 ]"
+        }
+    ],
+    "groupLabels": {
+        "alertname": "grandhika-tv-channel",
+        "grafana_folder": "Alert Ping"
+    },
+    "commonLabels": {
+        "alert-grandhika": "alert-grandhika",
+        "alert-telemetry-infrastructure": "alert-telemetry-infrastructure",
+        "alertname": "grandhika-tv-channel",
+        "grafana_folder": "Alert Ping"
+    },
+    "commonAnnotations": {
+        "summary": "Alert High Latency cdnjkt[1-4].transvision.co.id Of Grandhika Server Above 50%"
+    },
+    "externalURL": "http://localhost:3000/",
+    "version": "1",
+    "groupKey": "{}/{alert-telemetry-infrastructure=\"alert-telemetry-infrastructure\"}:{alertname=\"grandhika-tv-channel\", grafana_folder=\"Alert Ping\"}",
+    "truncatedAlerts": 0,
+    "orgId": 1,
+    "title": "[FIRING:1] grandhika-tv-channel Alert Ping (alert-grandhika alert-telemetry-infrastructure)",
+    "state": "alerting",
+    "message": "**Firing**\n\nValue: B=0.33333333333333337, C=1\nLabels:\n - alertname = grandhika-tv-channel\n - alert-grandhika = alert-grandhika\n - alert-telemetry-infrastructure = alert-telemetry-infrastructure\n - grafana_folder = Alert Ping\nAnnotations:\n - summary = Alert High Latency cdnjkt[1-4].transvision.co.id Of Grandhika Server Above 50%\nSource: http://localhost:3000/alerting/grafana/mfMs9yOIz/view\nSilence: http://localhost:3000/alerting/silence/new?alertmanager=grafana\u0026matcher=alert-grandhika%3Dalert-grandhika\u0026matcher=alert-telemetry-infrastructure%3Dalert-telemetry-infrastructure\u0026matcher=alertname%3Dgrandhika-tv-channel\u0026matcher=grafana_folder%3DAlert+Ping\n"
+}
